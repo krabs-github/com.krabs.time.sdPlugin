@@ -55,8 +55,15 @@
 
                       KrabsTime.SetTitle(context, "");
 
+                      if (vHour24 > 6 && vHour24 < 18) {
+                        vTextColor = "black"
+                        vShadow = 0
+                      } else {
+                        vTextColor = "white"
+                        vShadow = 2
+                      }
                       var imageUrl = "resources/images/Adaptive/" + vHour24 + ".png";
-                      convertImgToBase64_text(imageUrl, vShowTime, vShowDate, vShowDay, vBackgroundType, vTime_Numbers, vTime_AMPM, vDate, vDayName, function(base64Img){
+                      convertImgToBase64_text(imageUrl, vShowTime, vShowDate, vShowDay, vBackgroundType, vTime_Numbers, vDate, vDayName, vTextColor, vShadow, function(base64Img){
                       var vAvatarBase64 = base64Img;
                       setImage(context, vAvatarBase64);
                       });
@@ -131,7 +138,7 @@
               setTimeout(function() { fShake(context,0,0,0) }, 1000);
             };
 
-            function convertImgToBase64_text(url, vShowTime, vShowDate, vShowDay, vBackgroundType, vTime_Numbers, vTime_AMPM, vDate, vDayName, callback, outputFormat){
+            function convertImgToBase64_text(url, vShowTime, vShowDate, vShowDay, vBackgroundType, vTime_Numbers, vDate, vDayName, vTextColor, vShadow, callback, outputFormat){
               var canvas = document.createElement('CANVAS');
               var ctx = canvas.getContext('2d');
               var img = new Image;
@@ -145,10 +152,10 @@
                       // Time
                       ctx.shadowOffsetX = 4;
                       ctx.shadowOffsetY = 4;
-                      ctx.shadowColor = "rgba(0,0,0,0.2)";
+                      ctx.shadowColor = "rgba(0,0,0,0." + vShadow +")";
                       ctx.shadowBlur = 4;
                       ctx.font = "28px Impact";
-                      ctx.fillStyle = 'white';
+                      ctx.fillStyle = vTextColor;
                       ctx.textAlign = 'center';
                       ctx.fillText(vTime_Numbers, 36, 36);
                       // AM or PM
@@ -158,17 +165,17 @@
                       ctx.fillText(vTime_AMPM, 58, 36);*/
                       // Date
                       ctx.font = "16px Impact";
-                      ctx.fillStyle = 'white';
+                      ctx.fillStyle = vTextColor;
                       ctx.textAlign = 'center';
                       ctx.fillText(vDate, 36, 52);
                       // Day Name
                         if (vShowDay == true) {
                           ctx.shadowOffsetX = 4;
                           ctx.shadowOffsetY = 4;
-                          ctx.shadowColor = "rgba(0,0,0,0.2)";
+                          ctx.shadowColor = "rgba(0,0,0,0." + vShadow +")";
                           ctx.shadowBlur = 4;
                           ctx.font = "bold 12px Arial";
-                          ctx.fillStyle = 'white';
+                          ctx.fillStyle = vTextColor;
                           ctx.textAlign = 'center';
                           ctx.fillText(vDayName, 36, 68);
                         }
@@ -181,24 +188,24 @@
                       // Time
                       ctx.shadowOffsetX = 4;
                       ctx.shadowOffsetY = 4;
-                      ctx.shadowColor = "rgba(0,0,0,0.2)";
+                      ctx.shadowColor = "rgba(0,0,0,0." + vShadow +")";
                       ctx.shadowBlur = 4;
                       ctx.font = "28px Impact";
-                      ctx.fillStyle = 'white';
+                      ctx.fillStyle = vTextColor;
                       ctx.textAlign = 'center';
                       ctx.fillText(vTime_Numbers, 36, 36);
                       // Date
                       ctx.font = "16px Impact";
-                      ctx.fillStyle = 'white';
+                      ctx.fillStyle = vTextColor;
                       ctx.textAlign = 'center';
                       ctx.fillText(vDate, 36, 52);
                       // Day Name
                           ctx.shadowOffsetX = 4;
                           ctx.shadowOffsetY = 4;
-                          ctx.shadowColor = "rgba(0,0,0,0.2)";
+                          ctx.shadowColor = "rgba(0,0,0,0." + vShadow +")";
                           ctx.shadowBlur = 4;
                           ctx.font = "bold 12px Arial";
-                          ctx.fillStyle = 'white';
+                          ctx.fillStyle = vTextColor;
                           ctx.textAlign = 'center';
                           ctx.fillText(vDayName, 36, 68);
                     }
