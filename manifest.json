@@ -1,0 +1,38 @@
+{
+    "Actions": [
+        {
+            "Icon": "resources/images/actionIcon",
+            "Name": "Time",
+            "States": [
+                {
+                  "Image": "resources/images/actionDefaultImage",
+                  "TitleAlignment": "center",
+                  "FontFamily": "Arial",
+                  "TitleColor": "#ffffff",
+                  "FontStyle": "Bold",
+                  "FontSize": "9"
+                }
+              ],
+            "PropertyInspectorPath": "time_pi.html",
+            "SupportedInMultiActions": false,
+            "Tooltip": "Time",
+            "UUID": "com.krabs.time.action"
+        }
+    ],
+
+    "SDKVersion": 2,
+    "Author": "Krabs",
+    "Category": "Krabs - Stream Deck Labs",
+    "CategoryIcon": "resources/images/categoryIcon",
+    "CodePath": "time.html",
+    "Description": "Shows the time and/or date with options for black, white, or an active backgrounds.",
+    "Name": "Time",
+    "Icon": "resources/images/pluginIcon",
+    "URL": "https://www.krabs.me/streamdeck-plugins",
+    "Version": "1.0.0",
+    "OS": [
+        { "Platform": "windows", "MinimumVersion": "10" },
+        { "Platform": "mac", "MinimumVersion": "10.11" }
+    ],
+    "Software": { "MinimumVersion": "5.0" }
+}

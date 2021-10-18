@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>com.krabs.daysuntil PI</title>
+    <link rel="stylesheet" href="resources/scripts/sdpi.css">
+    <script src="resources/scripts/sdtools.common.js"></script>
+    <link rel="stylesheet" href="resources/scripts/rangeTooltip.css">
+    <script src="resources/scripts/rangeTooltip.js"></script>
+</head>
+
+<body>
+  <div class="sdpi-wrapper">
+    <div class="sdpi-heading">Time Options</div>
+    <div type="checkbox" class="sdpi-item" id="multi-items">
+         <div class="sdpi-item-label">Display</div>
+         <div class="sdpi-item-value min100">
+             <div class="sdpi-item-child">
+                 <input id="vKrabs_ShowTime" type="checkbox" value="on" class="sdProperty sdCheckbox" oninput="setSettings()" checked>
+                 <label for="vKrabs_ShowTime" class="sdpi-item-label"><span></span>Show Time</label>
+             </div>
+             <div class="sdpi-item-child">
+                 <input id="vKrabs_ShowDate" type="checkbox" value="on" class="sdProperty sdCheckbox" oninput="setSettings()" checked>
+                 <label for="vKrabs_ShowDate" class="sdpi-item-label"><span></span>Show Date</label>
+             </div>
+             <div class="sdpi-item-child">
+                 <input id="vKrabs_ShowDayName" type="checkbox" value="on" class="sdProperty sdCheckbox" oninput="setSettings()" checked>
+                 <label for="vKrabs_ShowDayName" class="sdpi-item-label"><span></span>Show Day</label>
+             </div>
+         </div>
+    </div>
+    <div class="sdpi-heading">Background Options</div>
+    <div class="sdpi-item" id="select_single">
+         <div class="sdpi-item-label">Background</div>
+         <select class="sdProperty" id="vKrabs_BackgroundType" oninput="setSettings()">
+            <option value="adaptive">Adaptive - (Recommended)</option>
+            <option value="black">Black</option>
+            <option value="custom">Custom</option>
+         </select>
+    </div>
+    <div type="color" class="sdpi-item" id="colorselection">
+      <div class="sdpi-item-label">Custom Color</div>
+      <input type="color" class="sdProperty" id="vKrabs_CustomBackgroundColor" value="#000000" oninput="setSettings()">
+    </div>
+    <div class="sdpi-heading"></div>
+    <details class="message">
+        <summary>For full setup instructions go to: <span class="linkspan" onclick="openWebsite()">https://www.krabs.me/streamdeck-plugins</span></summary>
+    </details>
+  </div>
+
+</body>
+</html>
