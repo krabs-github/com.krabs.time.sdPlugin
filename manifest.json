@@ -25,11 +25,11 @@
     "Category": "Krabs - Stream Deck Labs",
     "CategoryIcon": "resources/images/categoryIcon",
     "CodePath": "time.html",
-    "Description": "Shows the time and/or date with options for black, white, or an active backgrounds.",
+    "Description": "Shows the time and/or date and/or day of week with options for adaptive (changes with the hour), black, or a custom background color.",
     "Name": "Time",
     "Icon": "resources/images/pluginIcon",
     "URL": "https://www.krabs.me/streamdeck-plugins",
-    "Version": "1.0.1",
+    "Version": "1.0.2",
     "OS": [
         { "Platform": "windows", "MinimumVersion": "10" },
         { "Platform": "mac", "MinimumVersion": "10.11" }
