@@ -24,23 +24,63 @@
                 },
                 fKrabs_Time: function (context, settings) {
                     var payload = settingsCache[context];
-                    var vShowTime = payload['vKrabs_ShowTime'];
-                    var vShowDate = payload['vKrabs_ShowDate'];
-                    var vShowDay = payload['vKrabs_ShowDayName'];
-                    var vBackgroundType = payload['vKrabs_BackgroundType'];
-                    var vCustomBackgroundColor = payload['vKrabs_CustomBackgroundColor'];
+                    if (payload != null && payload.hasOwnProperty('vKrabs_ShowTime')) {
+                      var vShowTime = payload['vKrabs_ShowTime'];
+                    } else {
+                      var vShowTime = true
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_ShowDate')) {
+                      var vShowDate = payload['vKrabs_ShowDate'];
+                    } else {
+                      var vShowDate = true
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_ShowDayName')) {
+                      var vShowDay = payload['vKrabs_ShowDayName'];
+                    } else {
+                      var vShowDay = true
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_BackgroundType')) {
+                      var vBackgroundType = payload['vKrabs_BackgroundType'];
+                    } else {
+                      var vBackgroundType = "adaptive"
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_CustomBackgroundColor')) {
+                      var vCustomBackgroundColor = payload['vKrabs_CustomBackgroundColor'];
+                    } else {
+                      var vCustomBackgroundColor = "black"
+                    }
+
                     /*if (payload != null && payload.hasOwnProperty('vKrabs_EventDate')) {
                       var vEventDate = payload['vKrabs_EventDate'];
                     }*/
 
                     function getData() {
                       var payload = settingsCache[context];
-                      var vShowTime = payload['vKrabs_ShowTime'];
-                      var vShowDate = payload['vKrabs_ShowDate'];
-                      var vShowDay = payload['vKrabs_ShowDayName'];
-                      var vBackgroundType = payload['vKrabs_BackgroundType'];
-                      var vCustomBackgroundColor = payload['vKrabs_CustomBackgroundColor'];
-
+                      if (payload != null && payload.hasOwnProperty('vKrabs_ShowTime')) {
+                        var vShowTime = payload['vKrabs_ShowTime'];
+                      } else {
+                        var vShowTime = true
+                      }
+                      if (payload != null && payload.hasOwnProperty('vKrabs_ShowDate')) {
+                        var vShowDate = payload['vKrabs_ShowDate'];
+                      } else {
+                        var vShowDate = true
+                      }
+                      if (payload != null && payload.hasOwnProperty('vKrabs_ShowDayName')) {
+                        var vShowDay = payload['vKrabs_ShowDayName'];
+                      } else {
+                        var vShowDay = true
+                      }
+                      if (payload != null && payload.hasOwnProperty('vKrabs_BackgroundType')) {
+                        var vBackgroundType = payload['vKrabs_BackgroundType'];
+                      } else {
+                        var vBackgroundType = "adaptive"
+                      }
+                      if (payload != null && payload.hasOwnProperty('vKrabs_CustomBackgroundColor')) {
+                        var vCustomBackgroundColor = payload['vKrabs_CustomBackgroundColor'];
+                      } else {
+                        var vCustomBackgroundColor = "black"
+                      }
                       var vDate_Now = new Date();
                       var vTime = vDate_Now.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
                       var vHour24 = vDate_Now.getHours()
@@ -76,18 +116,38 @@
                       }
 
                       convertImgToBase64_text(imageUrl, vShowTime, vShowDate, vShowDay, vBackgroundType, vTime_Numbers, vDate, vDayName, vTextColor, vShadow, vCustomBackgroundColor, function(base64Img){
-                      var vAvatarBase64 = base64Img;
-                      setImage(context, vAvatarBase64);
+                      var vKrabsBase64 = base64Img;
+                      setImage(context, vKrabsBase64);
                       });
                     }
                   getData();
                   setTimeout(function run() {
                     getData();
-                    var vShowTime = payload['vKrabs_ShowTime'];
-                    var vShowDate = payload['vKrabs_ShowDate'];
-                    var vShowDay = payload['vKrabs_ShowDayName'];
-                    var vBackgroundType = payload['vKrabs_BackgroundType'];
-                    var vCustomBackgroundColor = payload['vKrabs_CustomBackgroundColor'];
+                    if (payload != null && payload.hasOwnProperty('vKrabs_ShowTime')) {
+                      var vShowTime = payload['vKrabs_ShowTime'];
+                    } else {
+                      var vShowTime = true
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_ShowDate')) {
+                      var vShowDate = payload['vKrabs_ShowDate'];
+                    } else {
+                      var vShowDate = true
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_ShowDayName')) {
+                      var vShowDay = payload['vKrabs_ShowDayName'];
+                    } else {
+                      var vShowDay = true
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_BackgroundType')) {
+                      var vBackgroundType = payload['vKrabs_BackgroundType'];
+                    } else {
+                      var vBackgroundType = "adaptive"
+                    }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_CustomBackgroundColor')) {
+                      var vCustomBackgroundColor = payload['vKrabs_CustomBackgroundColor'];
+                    } else {
+                      var vCustomBackgroundColor = "black"
+                    }
                     setTimeout(run, 1000);
                   }, 1000);
                 },
@@ -134,8 +194,8 @@
               function fShake(context, vPosX, vPosY, vRotate) {
                 var imageUrl = "resources/images/actionDefaultImage.png";
                 convertImgToBase64_motion(imageUrl, vPosX, vPosY, vRotate, function(base64Img){
-                var vAvatarBase64 = base64Img;
-                setImage(context, vAvatarBase64);
+                var vKrabsBase64 = base64Img;
+                setImage(context, vKrabsBase64);
                 });
               };
               setTimeout(function() { fShake(context,3,1,0) }, 100);
@@ -167,6 +227,11 @@
                         // x, y, width, height
                         ctx.fillRect(0, 0, 72, 72);
                       }
+                      if (vShowDay == false) {
+                        vPostition = 40
+                      } else {
+                        vPostition = 36
+                      }
                       // Time
                       ctx.shadowOffsetX = 4;
                       ctx.shadowOffsetY = 4;
@@ -175,7 +240,7 @@
                       ctx.font = "28px Impact";
                       ctx.fillStyle = vTextColor;
                       ctx.textAlign = 'center';
-                      ctx.fillText(vTime_Numbers, 36, 36);
+                      ctx.fillText(vTime_Numbers, 36, vPostition);
                       // AM or PM
                       /*ctx.font = "10px Impact";
                       ctx.fillStyle = 'white';
@@ -185,7 +250,7 @@
                       ctx.font = "16px Impact";
                       ctx.fillStyle = vTextColor;
                       ctx.textAlign = 'center';
-                      ctx.fillText(vDate, 36, 52);
+                      ctx.fillText(vDate, 36, (vPostition + 16));
                       // Day Name
                         if (vShowDay == true) {
                           ctx.shadowOffsetX = 4;
@@ -205,6 +270,11 @@
                         // x, y, width, height
                         ctx.fillRect(0, 0, 72, 72);
                       }
+                      if (vShowDay == false) {
+                        vPostition = 46
+                      } else {
+                        vPostition = 40
+                      }
                       // Time
                       ctx.shadowOffsetX = 4;
                       ctx.shadowOffsetY = 4;
@@ -213,7 +283,7 @@
                       ctx.font = "28px Impact";
                       ctx.fillStyle = vTextColor;
                       ctx.textAlign = 'center';
-                      ctx.fillText(vTime_Numbers, 36, 46);
+                      ctx.fillText(vTime_Numbers, 36, vPostition);
                       // Day Name
                         if (vShowDay == true) {
                           ctx.shadowOffsetX = 4;
@@ -223,7 +293,7 @@
                           ctx.font = "bold 12px Arial";
                           ctx.fillStyle = vTextColor;
                           ctx.textAlign = 'center';
-                          ctx.fillText(vDayName, 36, 68);
+                          ctx.fillText(vDayName, 36, 54);
                         }
                     } else if (vShowTime == false && vShowDate == true) {
                       if (vBackgroundType == "custom") {
@@ -231,6 +301,11 @@
                         ctx.fillStyle = vCustomBackgroundColor;
                         // x, y, width, height
                         ctx.fillRect(0, 0, 72, 72);
+                      }
+                      if (vShowDay == false) {
+                        vPostition = 46
+                      } else {
+                        vPostition = 40
                       }
                       ctx.shadowOffsetX = 4;
                       ctx.shadowOffsetY = 4;
@@ -240,7 +315,7 @@
                       ctx.font = "22px Impact";
                       ctx.fillStyle = vTextColor;
                       ctx.textAlign = 'center';
-                      ctx.fillText(vDate, 36, 46);
+                      ctx.fillText(vDate, 36, vPostition);
                       // Day Name
                         if (vShowDay == true) {
                           ctx.shadowOffsetX = 4;
@@ -250,8 +325,28 @@
                           ctx.font = "bold 12px Arial";
                           ctx.fillStyle = vTextColor;
                           ctx.textAlign = 'center';
-                          ctx.fillText(vDayName, 36, 68);
+                          ctx.fillText(vDayName, 36, 54);
                         }
+                    } else if (vShowTime == false && vShowDate == false && vShowDay == true) {
+                      if (vBackgroundType == "custom") {
+                        // shape
+                        ctx.fillStyle = vCustomBackgroundColor;
+                        // x, y, width, height
+                        ctx.fillRect(0, 0, 72, 72);
+                      }
+                      ctx.shadowOffsetX = 4;
+                      ctx.shadowOffsetY = 4;
+                      ctx.shadowColor = "rgba(0,0,0,0." + vShadow +")";
+                      ctx.shadowBlur = 4;
+                      // Day Name
+                      ctx.shadowOffsetX = 4;
+                      ctx.shadowOffsetY = 4;
+                      ctx.shadowColor = "rgba(0,0,0,0." + vShadow +")";
+                      ctx.shadowBlur = 4;
+                      ctx.font = "bold 12px Arial";
+                      ctx.fillStyle = vTextColor;
+                      ctx.textAlign = 'center';
+                      ctx.fillText(vDayName, 36, 40);
                     } else {
                       if (vBackgroundType == "custom") {
                         // shape
@@ -259,6 +354,7 @@
                         // x, y, width, height
                         ctx.fillRect(0, 0, 72, 72);
                       }
+                      vTextColor = "rgba(255,100,100,0.0)"
                       // Time
                       ctx.shadowOffsetX = 4;
                       ctx.shadowOffsetY = 4;
@@ -354,12 +450,12 @@
                     websocket.send(JSON.stringify(json));
                 }
             }
-            function setImage (context, vAvatarBase64) {
+            function setImage (context, vKrabsBase64) {
               var json = {
                   'event': 'setImage',
                   'context': context,
                   'payload': {
-                      'image': vAvatarBase64,
+                      'image': vKrabsBase64,
                       'target': DestinationEnum.HARDWARE_AND_SOFTWARE
                   }
                 };
