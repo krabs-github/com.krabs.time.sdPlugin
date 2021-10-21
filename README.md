@@ -5,10 +5,6 @@ By Krabs
 Overview
 Shows the time and/or date and/or day of week with options for adaptive (changes with the hour), black, or a custom background color.
 
-What's New
-Version: 1.0.2 - Initial Release
-
-
 Helpful Links
 https://www.krabs.me/streamdeck-plugins/time
 
