@@ -3,6 +3,7 @@
     <head>
         <title>com.krabs.time.action</title>
         <meta charset="utf-8" />
+        <script src="resources/scripts/timer.js"></script>
     </head>
     <body>
         <script>
@@ -81,17 +82,15 @@
                       } else {
                         var vCustomBackgroundColor = "black"
                       }
+
                       var vDate_Now = new Date();
-                      var vTime = vDate_Now.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+                      //var vTime = vDate_Now.toLocaleString([navigator.language], { hour: 'numeric', minute: 'numeric', hour12: true })
+                      var vTime = vDate_Now.toLocaleString([navigator.language], { hour: 'numeric', minute: 'numeric' })
                       var vHour24 = vDate_Now.getHours()
-                      var vDate = vDate_Now.toLocaleString('en-US', { month: 'short', day: 'numeric' })
-                      var vDayName = vDate_Now.toLocaleString('en-US', { weekday: 'long' })
+                      var vDate = vDate_Now.toLocaleString([navigator.language], { month: 'short', day: 'numeric' })
+                      var vDayName = vDate_Now.toLocaleString([navigator.language], { weekday: 'long' })
                       var [vTime_Numbers, vTime_AMPM] = vTime.split(' ');
-                      var vTime_AMPM = vTime_AMPM.toLowerCase()
-                      /*console.log(vTime_Numbers + vTime_AMPM);
-                      console.log(vHour24);
-                      console.log(vDate);
-                      console.log(vDayName);*/
+                      //var vTime_AMPM = vTime_AMPM.toLowerCase()
 
                       // Ensure Title doesn't get set by user.
                       KrabsTime.SetTitle(context, "");
@@ -157,13 +156,13 @@
                     /* Code here will run when the Stream Deck application is opened, the user switches between profiles or when a user adds the action
                         to their Stream Deck https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#willappear
                     */
-                    console.log("onWillAppear context: ", context, " settings: ", settings);
+                    //console.log("onWillAppear context: ", context, " settings: ", settings);
                     settingsCache[context] = settings;
                     var payload = settingsCache[context];
                     KrabsTime.fKrabs_Time(context, settings);
                 },
                 onWillDisappear: function (context, settings, coordinates) {
-                    console.log("onWillDisappear context: ", context, " settings: ", settings);
+                    //console.log("onWillDisappear context: ", context, " settings: ", settings);
                 },
                 SetTitle: function (context, vAnswer) {
                     let json = { event: "setTitle", context: context, payload: { title: ""+ vAnswer, target: DestinationEnum.HARDWARE_AND_SOFTWARE } };
@@ -171,7 +170,7 @@
                 },
                 getSettings: function (context, payload) {
                     websocket.send(context, 'getSettings', {});
-                    console.log(settings)
+                    //console.log(settings)
                 },
                 SetSettings: function (context, settings) {
                     var json = {
@@ -182,11 +181,11 @@
 
                     websocket.send(JSON.stringify(json));
                     settingsCache[context] = settings;
-                    console.log("New Settings", settings);
-                    console.log("New JSON", JSON.stringify(json));
+                    //console.log("New Settings", settings);
+                    //console.log("New JSON", JSON.stringify(json));
                 },
                 didReceiveSettings: function (context, payload) {
-                  console.log("Did receive: ", settings)
+                  //console.log("Did receive: ", settings)
                 }
             };
 // End of let KrabsTime definition
@@ -474,7 +473,7 @@
                 };
                 websocket.onmessage = function (evt) {
                     let jsonObj = JSON.parse(evt.data);
-                    console.log("onmessage json: ", jsonObj);
+                    //console.log("onmessage json: ", jsonObj);
                     let event = jsonObj["event"];
                     let action = jsonObj["action"];
                     let context = jsonObj["context"];
@@ -503,9 +502,9 @@
                         var coordinates = jsonPayload['coordinates'];
                         KrabsTime.onWillDisappear(context, settings, coordinates);
                     } else if (event == "sendToPlugin") {
-                        console.log("sendToPlugin received payload: ", jsonPayload);
+                        //console.log("sendToPlugin received payload: ", jsonPayload);
                     } else if (event == "didReceiveSettings") {
-                        console.log("didReceiveSettings received payload: ", jsonPayload);
+                        //console.log("didReceiveSettings received payload: ", jsonPayload);
                         let settings = jsonPayload["settings"];
                         let coordinates = jsonPayload["coordinates"];
                         let userDesiredState = jsonPayload["userDesiredState"];

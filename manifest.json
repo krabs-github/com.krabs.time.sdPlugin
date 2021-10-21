@@ -25,11 +25,11 @@
     "Category": "Krabs - Stream Deck Labs",
     "CategoryIcon": "resources/images/categoryIcon",
     "CodePath": "time.html",
-    "Description": "Shows the time, date, day of week by default. Information shown is fully customizable. You can choose to show any combination of time, date, or day of week. Adaptive background mode that changes hourly to reflect the time of day. Backgrounds are fully customizable. Adaptive background mode option. Black background color option. Custom background color option. Select your color in the settings!",
+    "Description": "Shows the time, date, day of week by default. Information displayed is customizable. You can choose to show any combination of time, date, or day of week. Adaptive background mode that changes hourly to reflect the time of day. Backgrounds are fully customizable. Adaptive background mode option. Black background color option. Custom background color option. Select your color in the settings!",
     "Name": "Time",
     "Icon": "resources/images/pluginIcon",
     "URL": "https://www.krabs.me/streamdeck-plugins",
-    "Version": "1.0.4",
+    "Version": "1.0.5",
     "OS": [
         { "Platform": "windows", "MinimumVersion": "10" },
         { "Platform": "mac", "MinimumVersion": "10.11" }
