@@ -22,6 +22,19 @@
                 onKeyUp: function (context, settings, coordinates, userDesiredState) {
                     /* Code here will run when the key is released https://developer.elgato.com/documentation/stream-deck/sdk/events-received/#keyup */
                     settingsCache[context] = settings;
+                    window.open("resources/calendar/calendar.html", "Calendar", "height = 250, width = 250")
+                    /*var openedWindow;
+                    function openWindow() {
+                      openedWindow = window.open('resources/calendar/calendar.html');
+                    }
+                    function closeOpenedWindow() {
+                      openedWindow.close();
+                    }
+                    if (openWindow) {
+                      closeOpenedWindow();
+                    } else {
+                      openWindow()
+                    }*/
                 },
                 fKrabs_Time: function (context, settings) {
                     var payload = settingsCache[context];
