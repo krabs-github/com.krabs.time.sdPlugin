@@ -76,7 +76,7 @@ function loadConfiguration(payload) {
             }
             else if (elem.classList.contains("sdFile")) { // File
                 var elemFile = document.getElementById(elem.id + "Filename");
-                elemFile.innerText = payload[key];
+                elemFile.innerText = decodeURIComponent(payload[key].replace(/^C:\\fakepath\\/, ''));
                 if (!elemFile.innerText) {
                     elemFile.innerText = "No file...";
                 }
@@ -104,6 +104,10 @@ function loadConfiguration(payload) {
                 elem.value = payload[key];
             }
             console.log("Load: " + key + "=" + payload[key]);
+            try {
+              DisplayCustomSettings();
+            } catch (error) {}
+
         }
         catch (err) {
             console.log("loadConfiguration failed for key: " + key + " - " + err);
@@ -122,10 +126,10 @@ function setSettings() {
         }
         else if (elem.classList.contains("sdFile")) { // File
             var elemFile = document.getElementById(elem.id + "Filename");
-            payload[key] = elem.value;
+            payload[key] = decodeURIComponent(elem.value.replace(/^C:\\fakepath\\/, ''))
             if (!elem.value) {
                 // Fetch innerText if file is empty (happens when we lose and regain focus to this key)
-                payload[key] = elemFile.innerText;
+                payload[key] = decodeURIComponent(elemFile.innerText.replace(/^C:\\fakepath\\/, ''))
             }
             else {
                 // Set value on initial file selection

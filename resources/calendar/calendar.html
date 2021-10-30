@@ -319,9 +319,15 @@
           }
       }
   </style>
+  <script>
+    function moveWinTo() {
+      vCalendarWindow.moveTo(150, 150);
+      vCalendarWindow.focus();
+    }
+  </script>
 </head>
-<body class="dark">
 
+<body class="dark" onload="moveWinTo()">
     <div class="calendar">
         <div class="calendar-header">
             <span class="month-picker" id="month-picker">February</span>
