@@ -14,8 +14,10 @@
           var optionText = selectElem.options[selectElem.selectedIndex].text;
           if (optionText.toUpperCase() == "CUSTOM") {
             document.getElementById('colorselection').style.display = 'flex';
+            document.getElementById('vKrabs_FileSelector').style.display = 'flex';
           } else {
             document.getElementById('colorselection').style.display = 'none';
+            document.getElementById('vKrabs_FileSelector').style.display = 'none'; 
           }
       }
     </script>
