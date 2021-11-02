@@ -61,7 +61,7 @@
                     } else {
                       var vCustomTextColor = "white"
                     }
-                    if (payload != null && payload.hasOwnProperty('vKrabs_CustomImage')) {
+                    if (payload != null && payload.hasOwnProperty('vKrabs_CustomImage') && payload['vKrabs_CustomImage'] !== "no file...") {
                       var vCustomImage = payload['vKrabs_CustomImage'];
                     } else {
                       var vCustomImage = "resources/images/Adaptive/black.png"
@@ -104,7 +104,7 @@
                       } else {
                         var vCustomTextColor = "white"
                       }
-                      if (payload != null && payload.hasOwnProperty('vKrabs_CustomImage')) {
+                      if (payload != null && payload.hasOwnProperty('vKrabs_CustomImage') && payload['vKrabs_CustomImage'] !== "no file...") {
                         var vCustomImage = payload['vKrabs_CustomImage'];
                       } else {
                         var vCustomImage = "resources/images/Adaptive/black.png"
