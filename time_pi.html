@@ -17,8 +17,16 @@
             document.getElementById('vKrabs_FileSelector').style.display = 'flex';
           } else {
             document.getElementById('colorselection').style.display = 'none';
-            document.getElementById('vKrabs_FileSelector').style.display = 'none'; 
+            document.getElementById('vKrabs_FileSelector').style.display = 'none';
           }
+      }
+      function CheckTimeBox() {
+        //var elm = document.getElementById('vKrabs_ShowTime');
+        if (checked = document.getElementById('vKrabs_ShowSeconds').checked) {
+        document.getElementById("vKrabs_ShowTime").checked = true;
+        } else if (checked != document.getElementById('vKrabs_ShowTime').checked) {
+          document.getElementById("vKrabs_ShowSeconds").checked = false;
+        }
       }
     </script>
 </head>
@@ -30,7 +38,7 @@
          <div class="sdpi-item-label">Display</div>
          <div class="sdpi-item-value min100">
              <div class="sdpi-item-child">
-                 <input id="vKrabs_ShowTime" type="checkbox" value="on" class="sdProperty sdCheckbox" oninput="setSettings()" checked>
+                 <input id="vKrabs_ShowTime" type="checkbox" value="on" class="sdProperty sdCheckbox" oninput="CheckTimeBox(); setSettings()" checked>
                  <label for="vKrabs_ShowTime" class="sdpi-item-label"><span></span>Show Time</label>
              </div>
              <div class="sdpi-item-child">
@@ -38,7 +46,7 @@
                  <label for="vKrabs_ShowDate" class="sdpi-item-label"><span></span>Show Date</label>
              </div>
              <div class="sdpi-item-child">
-                 <input id="vKrabs_ShowSeconds" type="checkbox" value="on" class="sdProperty sdCheckbox" oninput="setSettings()">
+                 <input id="vKrabs_ShowSeconds" type="checkbox" value="on" class="sdProperty sdCheckbox" oninput="CheckTimeBox(); setSettings()">
                  <label for="vKrabs_ShowSeconds" class="sdpi-item-label"><span></span>Show Secs</label>
              </div>
              <div class="sdpi-item-child">
