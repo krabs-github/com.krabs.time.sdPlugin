@@ -46,6 +46,11 @@
                     } else {
                       var vShowSeconds = false
                     }
+                    if (payload != null && payload.hasOwnProperty('vKrabs_HourFormat')) {
+                      var vHourFormat = payload['vKrabs_HourFormat'];
+                    } else {
+                      var vHourFormat = "automatic"
+                    }
                     if (payload != null && payload.hasOwnProperty('vKrabs_BackgroundType')) {
                       var vBackgroundType = payload['vKrabs_BackgroundType'];
                     } else {
@@ -89,6 +94,11 @@
                       } else {
                         var vShowSeconds = false
                       }
+                      if (payload != null && payload.hasOwnProperty('vKrabs_HourFormat')) {
+                        var vHourFormat = payload['vKrabs_HourFormat'];
+                      } else {
+                        var vHourFormat = false
+                      }
                       if (payload != null && payload.hasOwnProperty('vKrabs_BackgroundType')) {
                         var vBackgroundType = payload['vKrabs_BackgroundType'];
                       } else {
@@ -109,13 +119,30 @@
                       } else {
                         var vCustomImage = "resources/images/Adaptive/black.png"
                       }
-
                       var vDate_Now = new Date();
-                      //var vTime = vDate_Now.toLocaleString([navigator.language], { hour: 'numeric', minute: 'numeric', hour12: true })
-                      if (vShowSeconds == true) {
-                        var vTime = vDate_Now.toLocaleString([navigator.language], { hour: 'numeric', minute: '2-digit', second: '2-digit' })
+                      if (vHourFormat == "12") {
+                        if (vShowSeconds == true) {
+                          var vTime = vDate_Now.toTimeString()
+                          var vTime = vTime.substring(0, vTime.indexOf(" "))
+                          var vHour24Temp = (vDate_Now.getHours()) % 12 || 12
+                          var vTime = vHour24Temp + ":" + vTime.split("\:")[1] + ":"
+                        } else {
+                          var vTime = vDate_Now.toLocaleString([navigator.language], { hour: 'numeric', minute: '2-digit', hour12: true })
+                        }
+                      } else if (vHourFormat == "24") {
+                        if (vShowSeconds == true) {
+                          var vTime = (vDate_Now.toTimeString())
+                          var vTime = vTime.substring(0, vTime.indexOf(" "))
+                        } else {
+                          var vTime = (vDate_Now.toTimeString())
+                          var vTime = vTime.replace(/\:[^:]+$/, '')
+                        }
                       } else {
-                        var vTime = vDate_Now.toLocaleString([navigator.language], { hour: 'numeric', minute: '2-digit' })
+                        if (vShowSeconds == true) {
+                          var vTime = vDate_Now.toLocaleString([navigator.language], { hour: 'numeric', minute: '2-digit', second: '2-digit' })
+                        } else {
+                          var vTime = vDate_Now.toLocaleString([navigator.language], { hour: 'numeric', minute: '2-digit' })
+                        }
                       }
                       var vHour24 = vDate_Now.getHours()
                       var vDate = vDate_Now.toLocaleString([navigator.language], { month: 'short', day: 'numeric' })

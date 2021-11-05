@@ -26,11 +26,11 @@
     "CategoryIcon": "resources/images/categoryIcon",
     "CodePath": "time.html",
     "DefaultWindowSize": [500,500],
-    "Description": "Shows the time, date, day of week by default. Information displayed is customizable. Options to show any combination of time, date, or day of week. Optional -Seconds- display. Background options:  --Adaptive- background mode that changes hourly to reflect the time of day, -Black- background mode, & -Custom- background mode with background color / text color / image options.",
+    "Description": "Shows the time, date, day of week by default. Information displayed is customizable. Options to show any combination of time, date, or day of week. Optional -Seconds- display. Background options:  --Adaptive- background mode that changes hourly to reflect the time of day, -Black- background mode, & -Custom- background mode with background color, text color, & custom image options. 12 & 24 hour time display (Overrides your locales default time format).",
     "Name": "Time",
     "Icon": "resources/images/pluginIcon",
     "URL": "https://www.krabs.me/streamdeck-plugins",
-    "Version": "1.1.4",
+    "Version": "1.1.5",
     "OS": [
         { "Platform": "windows", "MinimumVersion": "10" },
         { "Platform": "mac", "MinimumVersion": "10.11" }
