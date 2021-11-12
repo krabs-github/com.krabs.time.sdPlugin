@@ -3,7 +3,7 @@ Time
 By Krabs
 
 Overview
-Shows the time and/or date and/or day of week with options for adaptive (changes with the hour), black, or a custom background color.
+Shows the time, date, day of week by default. Information displayed is customizable. Options to show any combination of time, date, or day of week. Optional -Seconds- display. Background options:  --Adaptive- background mode that changes hourly to reflect the time of day, -Black- background mode, & -Custom- background mode with background color, text color, & custom image options. 12 & 24 hour time display (Overrides your locales default time format).
 
 Helpful Links
 https://www.krabs.me/streamdeck-plugins/time
